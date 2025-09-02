@@ -1,6 +1,8 @@
 import { nxE2EPreset } from '@nx/cypress/plugins/cypress-preset'
 import { defineConfig } from 'cypress'
 
+require('dotenv').config();
+
 const { stat, rmdir, unlinkSync } = require('fs')
 const decompress = require('decompress')
 
@@ -22,6 +24,7 @@ export default defineConfig({
     ...nxE2EPreset(__filename),
     ...cypressJsonConfig,
     reporter: '../../node_modules/mochawesome',
+    baseUrl: 'http://localhost:3003/map',
     reporterOptions: {
       mochaFile: '../../dist/cypress/apps/fishing-map-e2e/test-[hash].xml',
       reportDir: '../../dist/cypress/apps/fishing-map-e2e/',
@@ -80,6 +83,8 @@ export default defineConfig({
     env: {
       apiAuthUser: '',
       apiAuthPass: '',
+      CYPRESS_USERNAME: process.env.CYPRESS_USERNAME,
+      CYPRESS_PASSWORD: process.env.CYPRESS_PASSWORD,
     },
     // Please ensure you use `cy.origin()` when navigating between domains and remove this option.
     // See https://docs.cypress.io/app/references/migration-guide#Changes-to-cyorigin

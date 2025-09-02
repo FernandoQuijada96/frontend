@@ -1,6 +1,5 @@
-import { timeout } from 'es-toolkit'
-
-import { disablePopups, login,switchLanguage } from '../../support/app.po'
+import { disablePopups} from '../../support/app.po'
+import {login,switchLanguage} from '../../support/demo/demo.po'
 
 describe('vms', () => {
    before(() => {
@@ -12,8 +11,7 @@ describe('vms', () => {
     login()
   })
 
-  it('logins', () => {
- 
+  it('displays vessel presence', () => {
     cy.getBySel('activity-layer-panel-presence', {timeout: 10000}).should('be.visible').and('have.class', 'print-hidden')
     cy.getBySel('activity-layer-panel-presence')
     .find('.LayerPanel-module__V4tG3a__header')
