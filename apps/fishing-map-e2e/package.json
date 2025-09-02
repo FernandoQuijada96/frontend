@@ -1,5 +1,8 @@
 {
   "name": "@globalfishingwatchapp/fishing-map-e2e",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  }
 }
