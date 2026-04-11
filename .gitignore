@@ -174,3 +174,6 @@ playwright-report/
 # SSL certificates
 local.globalfishingwatch.org-key.pem
 local.globalfishingwatch.org.pem
+yarn.lock
+package-lock.json
+yarn.lock
